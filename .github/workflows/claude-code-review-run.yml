@@ -112,6 +112,8 @@ jobs:
           # The buffered-comment post step reads the PR number from the
           # pull_request event, which is empty here, so post comments directly.
           classify_inline_comments: "false"
+          # repro only: show why the plugin stops. never merge this upstream.
+          show_full_output: true
           # The action drops a file --mcp-config when it adds inline JSON
           # configs of its own (mergeMcpConfigs in base-action). It adds none
           # here; adding mcp__github_comment__* or mcp__github__* tools would.
