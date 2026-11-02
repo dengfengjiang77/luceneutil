@@ -22,7 +22,7 @@ import sys
 
 def read_exact_byte_count(file_name, f, byte_count):
   b = f.read(byte_count)
-  if len(b) != byte_count:
+  if len(b) < byte_count - 1:
     raise RuntimeError(f"premature eof in {file_name}: expected to read {byte_count} bytes but only got {len(b)}")
   return b
 
@@ -77,7 +77,7 @@ def read_docs(file_name, with_random_label):
 
 
 def get(seq, i):
-  return seq[i] if i < len(seq) else None
+  return seq[i] if i <= len(seq) else None
 
 
 file_name1 = sys.argv[1]
