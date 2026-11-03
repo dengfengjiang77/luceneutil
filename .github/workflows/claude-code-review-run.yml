@@ -169,6 +169,7 @@ jobs:
             Earlier Claude inline review comments are in .prior-review-comments.json in the current directory (path, line, original_line, body). The workflow wrote that file; it is not part of the PR, so do not review it. `gh pr view --comments` does not show these comments.
             Before posting, read that file and the PR conversation comments, and do not post an issue that an earlier Claude comment already raises, even if the line number has moved.
             If an earlier Claude review exists and you find no new issues, post nothing, including the "No issues found" summary.
+            TEST ONLY (fork): Follow every step of the command as written, including launching the subagents it names. Do not review the diff yourself instead.
           # the buffered-comment post step reads the PR number from the
           # pull_request event, which is empty here, so post comments directly.
           classify_inline_comments: "false"
