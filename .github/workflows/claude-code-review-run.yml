@@ -147,7 +147,7 @@ jobs:
           # the plugin's sub-agents must finish inside this one headless turn.
           # a backgrounded one reports after the session has ended, and the
           # review posts nothing (same setting as pytorch's hardened review).
-          CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+          # CLAUDE_CODE_DISABLE_BACKGROUND_TASKS removed for the A/B test (fork only)
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # needed to post on fork PRs and for allowed_non_write_users.
