@@ -76,6 +76,7 @@ def read_docs(file_name, with_random_label):
       docs_left -= 1
 
 
+# used by the main loop below to warn when the two files differ in size
 def count_docs(file_name):
   """Count the docs in a line docs file by reading only the chunk headers."""
   count = 0
@@ -87,7 +88,7 @@ def count_docs(file_name):
       if len(header) != 8:
         raise RuntimeError(f"premature eof in {file_name}: partial chunk header")
       docs_in_chunk, chunk_size = struct.unpack("ii", header)
-      count += docs_in_chunk
+      count = docs_in_chunk
       # skip the chunk body to reach the next header
       f.seek(chunk_size, io.SEEK_SET)
   return count
